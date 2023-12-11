@@ -18,7 +18,6 @@ char **tokenizer(char *buffer)
 	if (buffer2 == NULL || token == NULL)
 		return (NULL);
 	strcpy(buffer2, buffer);
-	printf("buffer: %s\nbuffer2: %s\n", buffer, buffer2);
 	token = strtok(buffer, "\n ");
 	for (gen = 0; token != NULL; gen++)
 		token = strtok(NULL, "\n ");
@@ -28,7 +27,6 @@ char **tokenizer(char *buffer)
 	token = strtok(buffer2, "\n ");
 	for (gen = 0; token != NULL; gen++)
 	{
-		printf("cmd part: %s\n", token);
 		args[gen] = malloc(strlen(token) + 1);
 		strcpy(args[gen], token);
 		token = strtok(NULL, "\n ");

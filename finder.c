@@ -10,7 +10,7 @@
 	*/
 int finder(struct path *path_head, char **user_cmds, char *first_arg)
 {
-	struct path *tmp;
+	struct path *tmp = NULL;
 	int i;
 	size_t pid;
 	struct stat buffer;
@@ -31,12 +31,12 @@ int finder(struct path *path_head, char **user_cmds, char *first_arg)
 		if (pid == 0)
 		{
 			execve(first_arg, user_cmds, NULL);
+			printf("%s: not found\n", first_arg);
 		}
 		wait(NULL);
 	}
 	else
 	{
-		printf("command is filename without path\n");
 		if (file_finder(user_cmds, tmp) == -1)
 			return (-1);
 	}

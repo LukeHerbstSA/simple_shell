@@ -8,13 +8,26 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+extern char **environ;
+
+/**
+	* struct path - linked list of dirs
+	* @dir: contains a single directory from path
+	* @next: pointer to next node in path
+	*
+	* Description: contains directories from path for searching
+	*/
 struct path
 {
 	char *dir;
 	struct path *next;
 };
 
-int _env(void);
+void _exitter(char *status);
+void _setenv(char **user_cmds);
+void _unsetenv(char *envar);
+int _interpreter(char **user_cmds);
+void _env(void);
 char **tokenizer(char *buffer);
 void _free(char **user_cmds, struct path *path_head);
 char *prompt(void);

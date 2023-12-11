@@ -15,7 +15,7 @@ char *prompt(void)
 	buffer = malloc(200);
 	if (buffer == NULL)
 	{
-		perror("Issue with allocating memory");
+		perror("Issue with allocating memory\n");
 		return (NULL);
 	}
 	printf("$ ");
@@ -23,26 +23,13 @@ char *prompt(void)
 	{
 		len = getline(&token, &buffsize, stdin);
 		if (len == -1)
-		{
-			printf("Getline was passed ctrl+d\n");
 			break;
-		}
-		printf("before token newlines have been removed %s\n", token);
-		if (strcmp(token, "env\n") == 0)
-			_env();
-		if (strcmp(token, "exit\n") == 0)
-			return (NULL);
 		if (token[len - 1] == '\n')
-		{
 			token[len - 1] = '\0';
-			printf("after removed newlines %s\n", token);
-		}
 		strcat(buffer, token);
-		printf("buffer so far: %s\n", buffer);
 		if (token[-1] != '\n')
 			break;
 	}
-	printf("After getline\n");
 	free(token);
 	if (len == -1)
 		return (NULL);

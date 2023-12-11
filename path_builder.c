@@ -8,9 +8,9 @@
 struct path *exe_finder(void)
 {
 	struct path *head;
-	char *buffer;
+	char *buffer = NULL;
 	char *buffercpy = NULL;
-	char *dir;
+	char *dir = NULL;
 	struct path *tmp = NULL;
 
 	buffer = getenv("PATH");
@@ -18,13 +18,11 @@ struct path *exe_finder(void)
 	strcpy(buffercpy, buffer);
 	tmp = malloc(sizeof(struct path));
 	head = tmp;
-	printf("peaking at buffer before splitting: %s\n", buffer);
 	dir = strtok(buffercpy, ":");
 	if (buffer == NULL || tmp == NULL || dir == NULL)
 		return (NULL);
 	while (dir != NULL)
 	{
-		printf("%s\n", dir);
 		tmp->dir = dir;
 		dir = strtok(NULL, ":");
 		if (dir == NULL)
