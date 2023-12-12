@@ -14,7 +14,7 @@ char **tokenizer(char *buffer)
 	int gen;
 
 	token = malloc(100);
-	buffer2 = malloc(strlen(buffer) + 1);
+	buffer2 = malloc(_strlen(buffer) + 1);
 	if (buffer2 == NULL || token == NULL)
 		return (NULL);
 	strcpy(buffer2, buffer);
@@ -27,7 +27,7 @@ char **tokenizer(char *buffer)
 	token = strtok(buffer2, "\n ");
 	for (gen = 0; token != NULL; gen++)
 	{
-		args[gen] = malloc(strlen(token) + 1);
+		args[gen] = malloc(_strlen(token) + 1);
 		strcpy(args[gen], token);
 		token = strtok(NULL, "\n ");
 	}

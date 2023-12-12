@@ -14,7 +14,7 @@ struct path *exe_finder(void)
 	struct path *tmp = NULL;
 
 	buffer = getenv("PATH");
-	buffercpy = malloc(strlen(buffer) + 1);
+	buffercpy = malloc(_strlen(buffer) + 1);
 	strcpy(buffercpy, buffer);
 	tmp = malloc(sizeof(struct path));
 	head = tmp;

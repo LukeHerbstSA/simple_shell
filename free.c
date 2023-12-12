@@ -9,7 +9,7 @@
 void _free(char **user_cmds, struct path *path_head)
 {
 	int i = 0;
-	struct path *prev;
+	struct path *prev = NULL;
 
 	if (user_cmds != NULL)
 	{

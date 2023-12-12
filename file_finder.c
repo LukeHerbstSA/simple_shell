@@ -15,14 +15,14 @@ int file_finder(char **user_cmds, struct path *tmp)
 	char dir_sym[2] = "/";
 	struct stat buffer;
 
-	first_arg = malloc(strlen(user_cmds[0] + 1));
+	first_arg = malloc(_strlen(user_cmds[0] + 1));
 	strcpy(first_arg, user_cmds[0]);
 	pid = fork();
 	if (pid == 0)
 	{
 		while (tmp != NULL)
 		{
-			user_cmds[0] = realloc(user_cmds[0], strlen(tmp->dir) + 1);
+			user_cmds[0] = realloc(user_cmds[0], _strlen(tmp->dir) + 1);
 			strcpy(user_cmds[0], tmp->dir);
 			strcat(user_cmds[0], dir_sym);
 			strcat(user_cmds[0], first_arg);
@@ -30,13 +30,11 @@ int file_finder(char **user_cmds, struct path *tmp)
 				execve(user_cmds[0], user_cmds, NULL);
 			tmp = tmp->next;
 		}
+		printf("%s: not found\n", first_arg);
 	}
 	wait(NULL);
 	free(first_arg);
 	if (tmp == NULL)
-	{
-		printf("%s: not found\n", first_arg);
 		return (-1);
-	}
 	return (0);
 }

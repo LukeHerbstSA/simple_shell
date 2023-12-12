@@ -23,6 +23,7 @@ struct path
 	struct path *next;
 };
 
+int _strlen(char *string);
 void _exitter(char *status);
 void _setenv(char **user_cmds);
 void _unsetenv(char *envar);
