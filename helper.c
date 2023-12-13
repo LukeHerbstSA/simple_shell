@@ -92,5 +92,7 @@ int _strcmp(char *string1, char *string2)
 			return (1);
 		i++;
 	}
+	if (string2[i] != '\0')
+		return (1);
 	return (0);
 }

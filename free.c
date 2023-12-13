@@ -16,11 +16,12 @@ void _free(char **user_cmds, struct path *path_head)
 		while (user_cmds[i] != NULL)
 		{
 			free(user_cmds[i]);
+			user_cmds[i] = NULL;
 			i++;
 		}
+		user_cmds[i] = NULL;
 		free(user_cmds);
 	}
-	user_cmds[0] = NULL;
 	while (path_head != NULL)
 	{
 		prev = path_head;

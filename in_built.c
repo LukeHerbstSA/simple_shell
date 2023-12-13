@@ -7,22 +7,18 @@
 	*/
 void _exitter(char *status)
 {
-	char **err = malloc(sizeof(char *));
 	int exit_status;
 
-	*err = malloc(sizeof(char *));
 	if (status != NULL)
-		exit_status = strtol(status, err, 10);
+		exit_status = _atoi(status);
 	else
 		exit(0);
-	if (status == 0)
+	if (exit_status == 0)
 		perror("No chars present in exit status\n");
-	if (**err != '\0')
+	if (exit_status == -1)
 		perror("exit status has invalid chars\n");
 	if (status > 0)
 		exit(exit_status);
-	free(*err);
-	free(err);
 }
 /**
 	* _env - int func
@@ -47,27 +43,24 @@ void _env(void)
 void _setenv(char **user_cmds)
 {
 	char *num;
-	char **err = malloc(sizeof(char *));
 	long int result;
 
-	*err = malloc(sizeof(char *));
 	if (user_cmds[1] != NULL)
 	{
 		if (user_cmds[2] != NULL)
 		{
 			num = user_cmds[2];
-			result = strtol(num, err, 10);
-			if (result == 0 || **err != '\0')
-			{
+			result = _atoi(num);
+			if (result == -1)
+				perror("Invalid chars in exit status\n");
+			if (result == 0)
 				perror("Bad value passed for setenv\n");
-			}
 			else
 				setenv(user_cmds[1], user_cmds[2], result);
 		}
 	}
 	else
 		perror("Incorrect number of args passed for setenv\n");
-	free(err);
 }
 
 /**

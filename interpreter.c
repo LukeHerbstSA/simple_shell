@@ -8,11 +8,9 @@
 	*/
 int _interpreter(char **user_cmds)
 {
-	char **err = malloc(sizeof(char *));
 	long int status = 1;
 	int check = 1;
 
-	*err = malloc(sizeof(char *));
 	if (_strcmp(user_cmds[0], "env") == 0)
 	{
 		_env();
@@ -23,13 +21,13 @@ int _interpreter(char **user_cmds)
 		check = 0;
 		_exitter(user_cmds[1]);
 		if (user_cmds[1] != NULL)
-			status = strtol(user_cmds[1], err, 10);
+			status = _atoi(user_cmds[1]);
 		else
 			exit(0);
+		if (status == -1)
+			perror("Invalid chars present\n");
 		if (status == 0)
 			perror("No chars present in exit status\n");
-		if (**err != '\0')
-			perror("exit status has invalid chars\n");
 		if (status > 0)
 			exit(status);
 	}
@@ -43,7 +41,5 @@ int _interpreter(char **user_cmds)
 		_unsetenv(user_cmds[1]);
 		check = 0;
 	}
-	free(*err);
-	free(err);
 	return (check);
 }
