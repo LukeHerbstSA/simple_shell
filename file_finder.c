@@ -11,7 +11,6 @@ int file_finder(char **user_cmds, struct path *tmp)
 {
 	size_t pid;
 	char *first_arg = NULL;
-	int i = 0;
 	char dir_sym[2] = "/";
 	struct stat buffer;
 

@@ -17,7 +17,7 @@ void _exitter(char *status)
 		perror("No chars present in exit status\n");
 	if (exit_status == -1)
 		perror("exit status has invalid chars\n");
-	if (status > 0)
+	if (exit_status > 0)
 		exit(exit_status);
 }
 /**
@@ -61,6 +61,7 @@ char *_getenv(char *envar)
 	}
 	return (NULL);
 }
+
 /**
 	* _setenv - void func
 	* Description: sets a new variable / overwrites at name
@@ -68,6 +69,25 @@ char *_getenv(char *envar)
 	*/
 void _setenv(char **user_cmds)
 {
+	char *num;
+	long int result;
+
+	if (user_cmds[1] != NULL)
+	{
+		if (user_cmds[2] != NULL)
+		{
+			num = user_cmds[2];
+			result = _atoi(num);
+			if (result == -1)
+				perror("Invalid chars in exit status\n");
+			if (result == 0)
+				perror("Bad value passed for setenv\n");
+			else
+				setenv(user_cmds[1], user_cmds[2], result);
+		}
+	}
+	else
+		perror("Incorrect number of args passed for setenv\n");
 }
 
 /**
@@ -77,4 +97,10 @@ void _setenv(char **user_cmds)
 	*/
 void _unsetenv(char *envar)
 {
+	if (envar != NULL)
+	{
+		unsetenv(envar);
+		return;
+	}
+	perror("Bad pointer - NULL");
 }
