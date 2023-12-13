@@ -9,7 +9,7 @@
 void _free(char **user_cmds, struct path *path_head)
 {
 	int i = 0;
-	struct path *prev = NULL;
+	struct path *prev;
 
 	if (user_cmds != NULL)
 	{
@@ -20,10 +20,12 @@ void _free(char **user_cmds, struct path *path_head)
 		}
 		free(user_cmds);
 	}
+	user_cmds[0] = NULL;
 	while (path_head != NULL)
 	{
 		prev = path_head;
 		path_head = path_head->next;
+		prev->dir = NULL;
 		free(prev);
 	}
 	if (path_head != NULL)
