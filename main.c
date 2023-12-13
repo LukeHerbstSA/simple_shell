@@ -20,8 +20,9 @@ int main(void)
 			buffer = prompt();
 			if (buffer == NULL)
 			{
+				printf("PID of current process: %d\n", getpid());
 				_putchar_string("\nClosing shell . . .\n");
-				kill(getpid(), 2);
+				return (-1);
 			}
 			user_cmds = tokenizer(buffer);
 			if (user_cmds == NULL)

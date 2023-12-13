@@ -32,6 +32,7 @@ int file_finder(char **user_cmds, struct path *tmp)
 		}
 		_putchar_string(first_arg);
 		_putchar_string(": not found\n");
+		exit(0);
 	}
 	wait(NULL);
 	free(first_arg);
