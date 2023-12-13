@@ -26,7 +26,7 @@ char *prompt(void)
 			break;
 		if (token[len - 1] == '\n')
 			token[len - 1] = '\0';
-		strcat(buffer, token);
+		_strcat(buffer, token);
 		if (token[-1] != '\n')
 			break;
 	}

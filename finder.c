@@ -31,7 +31,8 @@ int finder(struct path *path_head, char **user_cmds, char *first_arg)
 		if (pid == 0)
 		{
 			execve(first_arg, user_cmds, NULL);
-			printf("%s: not found\n", first_arg);
+			_putchar_string(first_arg);
+			_putchar_string(": not found\n");
 		}
 		wait(NULL);
 	}

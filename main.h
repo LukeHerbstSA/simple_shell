@@ -23,7 +23,11 @@ struct path
 	struct path *next;
 };
 
-int _strlen(char *string);
+void _putchar_string(char *line);
+int _strcmp(char *matcher, char *matchee);
+void _strcat(char *reciever, char *donor);
+void _strcpy(char *srtring1, char *string2);
+int _len(char *string);
 void _exitter(char *status);
 void _setenv(char **user_cmds);
 void _unsetenv(char *envar);

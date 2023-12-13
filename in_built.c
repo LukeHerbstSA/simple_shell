@@ -34,7 +34,7 @@ void _env(void)
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
-		write(1, environ[i], strlen(environ[i]));
+		write(1, environ[i], _len(environ[i]));
 		write(1, "\n", 2);
 	}
 }
@@ -67,9 +67,7 @@ void _setenv(char **user_cmds)
 	}
 	else
 		perror("Incorrect number of args passed for setenv\n");
-	printf("after setenv, before freeing\n");
 	free(err);
-	printf("After freeing err\n");
 }
 
 /**

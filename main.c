@@ -19,7 +19,7 @@ int main(void)
 			buffer = prompt();
 			if (buffer == NULL)
 			{
-				printf("\nClosing shell . . .\n");
+				_putchar_string("\nClosing shell . . .\n");
 				return (-1);
 			}
 			user_cmds = tokenizer(buffer);
@@ -34,7 +34,7 @@ int main(void)
 				perror("Something went wrong when building your PATH\n");
 				break;
 			}
-			if ((strcmp(buffer, "") == 0) || (strcmp(buffer, " ") == 0))
+			if ((_strcmp(buffer, "") == 0) || (_strcmp(buffer, " ") == 0))
 				break;
 			if (_interpreter(user_cmds) <= 0)
 				break;

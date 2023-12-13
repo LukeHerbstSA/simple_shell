@@ -13,12 +13,12 @@ int _interpreter(char **user_cmds)
 	int check = 1;
 
 	*err = malloc(sizeof(char *));
-	if (strcmp(user_cmds[0], "env") == 0)
+	if (_strcmp(user_cmds[0], "env") == 0)
 	{
 		_env();
 		check = 0;
 	}
-	if (strcmp(user_cmds[0], "exit") == 0)
+	if (_strcmp(user_cmds[0], "exit") == 0)
 	{
 		check = 0;
 		_exitter(user_cmds[1]);
@@ -33,12 +33,12 @@ int _interpreter(char **user_cmds)
 		if (status > 0)
 			exit(status);
 	}
-	if (strcmp(user_cmds[0], "setenv") == 0)
+	if (_strcmp(user_cmds[0], "setenv") == 0)
 	{
 		_setenv(user_cmds);
 		check = 0;
 	}
-	if (strcmp(user_cmds[0], "unsetenv") == 0)
+	if (_strcmp(user_cmds[0], "unsetenv") == 0)
 	{
 		_unsetenv(user_cmds[1]);
 		check = 0;
