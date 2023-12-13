@@ -23,6 +23,7 @@ struct path
 	struct path *next;
 };
 
+char *_getenv(char *env_variable);
 int _atoi(char *number);
 void _putchar_string(char *line);
 int _strcmp(char *matcher, char *matchee);
