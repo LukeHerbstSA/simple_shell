@@ -34,7 +34,6 @@ void _env(void)
 		write(1, "\n", 2);
 	}
 }
-
 /**
 	* _setenv - void func
 	* Description: sets a new variable / overwrites at name
@@ -42,25 +41,6 @@ void _env(void)
 	*/
 void _setenv(char **user_cmds)
 {
-	char *num;
-	long int result;
-
-	if (user_cmds[1] != NULL)
-	{
-		if (user_cmds[2] != NULL)
-		{
-			num = user_cmds[2];
-			result = _atoi(num);
-			if (result == -1)
-				perror("Invalid chars in exit status\n");
-			if (result == 0)
-				perror("Bad value passed for setenv\n");
-			else
-				setenv(user_cmds[1], user_cmds[2], result);
-		}
-	}
-	else
-		perror("Incorrect number of args passed for setenv\n");
 }
 
 /**
@@ -70,10 +50,4 @@ void _setenv(char **user_cmds)
 	*/
 void _unsetenv(char *envar)
 {
-	if (envar != NULL)
-	{
-		unsetenv(envar);
-		return;
-	}
-	perror("Bad pointer - NULL");
 }
