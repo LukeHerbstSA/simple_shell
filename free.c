@@ -19,9 +19,10 @@ void _free(char **user_cmds, struct path *path_head)
 			user_cmds[i] = NULL;
 			i++;
 		}
-		user_cmds[i] = NULL;
+		free(user_cmds[i]);
 		free(user_cmds);
 	}
+	user_cmds = NULL;
 	while (path_head != NULL)
 	{
 		prev = path_head;

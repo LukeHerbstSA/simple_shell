@@ -12,8 +12,8 @@ char *prompt(void)
 	size_t buffsize = 0;
 	int len = 0;
 
-	buffer = malloc(200);
-	if (buffer == NULL)
+	token = malloc(100);
+	if (token == NULL)
 	{
 		perror("Issue with allocating memory\n");
 		return (NULL);
@@ -26,7 +26,8 @@ char *prompt(void)
 			break;
 		if (token[len - 1] == '\n')
 			token[len - 1] = '\0';
-		_strcat(buffer, token);
+		buffer = malloc(_len(token) + 1);
+		_strcpy(buffer, token);
 		if (token[-1] != '\n')
 			break;
 	}

@@ -13,7 +13,7 @@ char **tokenizer(char *buffer)
 	char **args = NULL;
 	int gen;
 
-	token = malloc(100);
+	token = malloc(4);
 	buffer2 = malloc(_len(buffer) + 1);
 	if (buffer2 == NULL || token == NULL)
 		return (NULL);

@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
 	* main - int function
 	* Description: loop that only breaks on error, to return int code to main
@@ -20,7 +21,7 @@ int main(void)
 			if (buffer == NULL)
 			{
 				_putchar_string("\nClosing shell . . .\n");
-				return (-1);
+				kill(getpid(), 2);
 			}
 			user_cmds = tokenizer(buffer);
 			if (user_cmds == NULL)
