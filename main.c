@@ -34,7 +34,7 @@ int main(void)
 				perror("Something went wrong when building your PATH\n");
 				break;
 			}
-			if ((_strcmp(buffer, "") == 0) || (_strcmp(buffer, " ") == 0))
+			if ((_strcmp(user_cmds[0], "") == 0) || (_strcmp(user_cmds[0], " ") == 0))
 				break;
 			if (_interpreter(user_cmds) <= 0)
 				break;
