@@ -20,7 +20,6 @@ int main(void)
 			buffer = prompt();
 			if (buffer == NULL)
 			{
-				printf("PID of current process: %d\n", getpid());
 				_putchar_string("\nClosing shell . . .\n");
 				return (-1);
 			}
