@@ -26,17 +26,18 @@ int file_finder(char **user_cmds, struct path *tmp)
 			_strcat(user_cmds[0], dir_sym);
 			_strcat(user_cmds[0], first_arg);
 			if (stat(user_cmds[0], &buffer) != 1)
-				execve(user_cmds[0], user_cmds, NULL);
+				execve(user_cmds[0], user_cmds, environ);
 			tmp->dir = NULL;
 			tmp = tmp->next;
 		}
-		_putchar_string(first_arg);
-		_putchar_string(": not found\n");
-		exit(0);
 	}
 	wait(NULL);
 	free(first_arg);
 	if (tmp == NULL)
-		return (-1);
+	{
+		perror(first_arg);
+		perror(": not found\n");
+		exit(127);
+	}
 	return (0);
 }

@@ -30,7 +30,7 @@ int finder(struct path *path_head, char **user_cmds, char *first_arg)
 		pid = fork();
 		if (pid == 0)
 		{
-			execve(first_arg, user_cmds, NULL);
+			execve(first_arg, user_cmds, environ);
 			_putchar_string(first_arg);
 			_putchar_string(": not found\n");
 		}
