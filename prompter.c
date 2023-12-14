@@ -18,7 +18,8 @@ char *prompt(void)
 		perror("Issue with allocating memory\n");
 		return (NULL);
 	}
-	printf("$ ");
+	if (isatty(0))
+		printf("$ ");
 	while (1)
 	{
 		len = getline(&token, &buffsize, stdin);
