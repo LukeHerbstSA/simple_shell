@@ -45,7 +45,6 @@ int main(void)
 			break;
 		}
 		_free(user_cmds, path_head);
-		break;
 	}
 	return (0);
 }
