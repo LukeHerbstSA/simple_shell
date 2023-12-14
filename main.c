@@ -19,7 +19,7 @@ int main(void)
 		{
 			buffer = prompt();
 			if (buffer == NULL)
-				return (-1);
+				return (0);
 			user_cmds = tokenizer(buffer);
 			if (user_cmds == NULL)
 			{
