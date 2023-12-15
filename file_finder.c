@@ -34,10 +34,9 @@ int file_finder(char **user_cmds, struct path *tmp)
 	wait(NULL);
 	if (tmp == NULL)
 	{
-		supress_err(-1, 0);
-		perror(first_arg);
-		perror(": not found\n");
-		supress_err(127, 2);
+		write(2, first_arg, _len(first_arg) + 1);
+		write(2, ": not found\n", 13);
+		exit(127);
 	}
 	free(first_arg);
 	return (0);

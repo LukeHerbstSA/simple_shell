@@ -25,7 +25,6 @@ int main(int argc, char **argv)
 	{
 		while (1) /* Error codes may need a specific way to deal with them */
 		{
-			supress_err(-1, 1);
 			if (descriptor <= 2 && isatty(STDIN_FILENO))
 				_putchar_string("$ ");
 			buffer = prompt();
@@ -45,7 +44,6 @@ int main(int argc, char **argv)
 			break;
 		}
 		_free(user_cmds, path_head);
-		supress_err(0, 0);
 	}
 	return (0);
 }
