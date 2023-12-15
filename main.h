@@ -26,6 +26,7 @@ struct path
 	struct path *next;
 };
 
+void supress_err(int exitcode, int mode);
 char *_getenv(char *env_variable);
 int _atoi(char *number);
 void _putchar_string(char *line);

@@ -32,12 +32,13 @@ int file_finder(char **user_cmds, struct path *tmp)
 		}
 	}
 	wait(NULL);
-	free(first_arg);
 	if (tmp == NULL)
 	{
+		supress_err(-1, 0);
 		perror(first_arg);
 		perror(": not found\n");
-		exit(127);
+		supress_err(127, 2);
 	}
+	free(first_arg);
 	return (0);
 }

@@ -14,10 +14,7 @@ char *prompt(void)
 
 	token = malloc(1000);
 	if (token == NULL)
-	{
-		perror("Issue with allocating memory\n");
 		return (NULL);
-	}
 	while (1)
 	{
 		len = getline(&token, &buffsize, stdin);
