@@ -86,6 +86,8 @@ int _strcmp(char *string1, char *string2)
 {
 	int i = 0;
 
+	if (string1 == NULL)
+		return (-1);
 	while (string1[i] != '\0')
 	{
 		if (string1[i] != string2[i])
