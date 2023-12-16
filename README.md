@@ -21,7 +21,7 @@ Significant files:
 - built-in : contains implementations of whatever built in command a user passes
 
 Extra info:
-This is my first big c-project, there may be some undesirable behaviour such as not returning an exit code on fail or exitting and only when exit is explicitly passed to the program, and instead prompting the user again (with no further connected issues)
+This is my first big c-project, there may be some undesirable behaviour such as not returning an exit code on fail and will only do so when exit is explicitly passed to the program, and instead prompting the user again (with no further connected issues)
 If you have any suggestions or want to fix any issues (or have spotted any issues that you're aware of how to fix) please let me know - especially it involves how error handling should be done as I'm still learning that,
 I'll likely do another large project in c and focus on proper error ettiquette as compensation.
 Also in retrospect and especially as I've looked into shell scripting in c since this project has been finished, there's better ways to ensure you don't allocate more memory than necessary by use of realloc in a loop to prevent segfaults,
