@@ -29,8 +29,6 @@ char *prompt(void)
 	}
 	free(token);
 	if (len == -1)
-	{
 		return (NULL);
-	}
 	return (buffer);
 }
