@@ -27,7 +27,6 @@ int file_finder(char **user_cmds, struct path *tmp)
 			_strcat(user_cmds[0], first_arg);
 			if (stat(user_cmds[0], &buffer) != 1)
 				execve(user_cmds[0], user_cmds, environ);
-			free(user_cmds[0]);
 			tmp->dir = NULL;
 			tmp = tmp->next;
 		}

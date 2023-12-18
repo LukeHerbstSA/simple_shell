@@ -25,3 +25,11 @@ char *prompt(void)
 		return (NULL);
 	return (buffer);
 }
+
+int main(void)
+{
+	char *buffer = prompt();
+
+	printf("The buffer is: %s\n", buffer);
+	return (0);
+}

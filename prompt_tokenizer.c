@@ -14,7 +14,8 @@ char **tokenizer(char *buffer)
 	int gen;
 
 	buffer2 = malloc(_len(buffer) + 1);
-	if (buffer2 == NULL || token == NULL)
+	printf("len of buffer: %d\n", _len(buffer));
+	if (buffer2 == NULL)
 		return (NULL);
 	_strcpy(buffer2, buffer);
 	token = strtok(buffer, "\n ");
