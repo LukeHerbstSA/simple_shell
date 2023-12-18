@@ -21,7 +21,7 @@ int file_finder(char **user_cmds, struct path *tmp)
 	{
 		while (tmp != NULL)
 		{
-			user_cmds[0] = realloc(user_cmds[0], _len(tmp->dir) + _len(first_arg) + 2);
+			user_cmds[0] = realloc(user_cmds[0], _len(tmp->dir) + _len(first_arg) + 1);
 			_strcpy(user_cmds[0], tmp->dir);
 			_strcat(user_cmds[0], dir_sym);
 			_strcat(user_cmds[0], first_arg);
@@ -34,7 +34,7 @@ int file_finder(char **user_cmds, struct path *tmp)
 	wait(NULL);
 	if (tmp == NULL)
 	{
-		write(2, first_arg, _len(first_arg) + 1);
+		write(2, first_arg, _len(first_arg));
 		write(2, ": not found\n", 13);
 		exit(127);
 	}

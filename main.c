@@ -14,7 +14,6 @@ int main(int argc, char **argv)
 	char *buffer = NULL;
 	struct path *path_head = NULL;
 	int descriptor = 0;
-	int i;
 
 	if (argc == 2)
 	{
@@ -31,12 +30,9 @@ int main(int argc, char **argv)
 			buffer = prompt();
 			if (buffer == NULL)
 				return (0);
-			printf("After buffer: %s\n", buffer);
 			user_cmds = tokenizer(buffer);
 			if (user_cmds == NULL)
 				break;
-			for (i = 0; user_cmds[i] != NULL; i++)
-				printf("user_cmds[i] = %s\n", user_cmds[i]);
 			path_head = exe_finder();
 			if (path_head == NULL)
 				break;
