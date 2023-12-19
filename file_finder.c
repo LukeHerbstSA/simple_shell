@@ -35,7 +35,7 @@ int file_finder(char **user_cmds, struct path *tmp)
 	if (tmp == NULL)
 	{
 		write(2, first_arg, _len(first_arg));
-		write(2, ": not found\n", 13);
+		write(2, ": not found\n", 12);
 		exit(127);
 	}
 	free(first_arg);

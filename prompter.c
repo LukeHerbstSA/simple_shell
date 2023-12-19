@@ -14,7 +14,7 @@ char *prompt(void)
 	while (1)
 	{
 		len = getline(&buffer, &buffsize, stdin);
-		if (len == -1)
+		if (len == -1 || buffer == NULL)
 			break;
 		if (buffer[len - 1] == '\n')
 			buffer[len - 1] = '\0';
