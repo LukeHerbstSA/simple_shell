@@ -33,7 +33,10 @@ int main(int argc, char **argv)
 				_putchar_string("$ ");
 			buffer = prompt();
 			if (buffer == NULL)
+			{
+				free(buffercpy);
 				return (0);
+			}
 			user_cmds = tokenizer(buffer);
 			if (user_cmds == NULL)
 				break;
