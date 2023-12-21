@@ -40,7 +40,7 @@ void _unsetenv(char *envar);
 int _interpreter(char **user_cmds);
 void _env(void);
 char **tokenizer(char *buffer);
-void _free(char **user_cmds, struct path *path_head);
+void _free(char **user_cmds, struct path *path_head, char *buffercpy);
 char *prompt(void);
 struct path *exe_finder(char *env_cpy);
 int finder(struct path *path_head, char **user_cmds, char *first_arg);

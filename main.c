@@ -14,8 +14,8 @@ int main(int argc, char **argv)
 	char *buffer = NULL;
 	struct path *path_head = NULL;
 	char *_env = getenv("PATH");
-	char *buffercpy = malloc(_len(_env) + 1);
-	int descriptor= 0;
+	char *buffercpy;
+	int descriptor = 0;
 
 	if (argc == 2)
 	{
@@ -27,6 +27,8 @@ int main(int argc, char **argv)
 	{
 		while (1) /* Error codes may need a specific way to deal with them */
 		{
+			buffercpy = malloc(_len(_env) + 1);
+			_strcpy(buffercpy, _env);
 			if (descriptor <= 2 && isatty(STDIN_FILENO))
 				_putchar_string("$ ");
 			buffer = prompt();
@@ -45,7 +47,7 @@ int main(int argc, char **argv)
 			finder(path_head, user_cmds, user_cmds[0]);
 			break;
 		}
-		_free(user_cmds, path_head);
+		_free(user_cmds, path_head, buffercpy);
 	}
 	return (0);
 }
