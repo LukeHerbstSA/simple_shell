@@ -3,23 +3,19 @@
 /**
 	* exe_finder - char *ptr func
 	* Description: builds a singly linked list from path variable
+	* @buffercpy: copy of the value of the PATH environment variable
 	* Return: struct path *head so main func can access the list
 	*/
-struct path *exe_finder(void)
+struct path *exe_finder(char *buffercpy)
 {
-	struct path *head;
-	char *buffer = NULL;
-	char *buffercpy = NULL;
+	struct path *head = NULL;
 	char *dir = NULL;
 	struct path *tmp = NULL;
 
-	buffer = _getenv("PATH");
-	buffercpy = malloc(_len(buffer) + 1);
-	_strcpy(buffercpy, buffer);
 	tmp = malloc(sizeof(struct path));
 	head = tmp;
 	dir = strtok(buffercpy, ":");
-	if (buffer == NULL || tmp == NULL || dir == NULL)
+	if (buffercpy == NULL)
 		return (NULL);
 	while (dir != NULL)
 	{

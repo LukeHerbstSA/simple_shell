@@ -13,7 +13,9 @@ int main(int argc, char **argv)
 	char **user_cmds = NULL;
 	char *buffer = NULL;
 	struct path *path_head = NULL;
-	int descriptor = 0;
+	char *_env = getenv("PATH");
+	char *buffercpy = malloc(_len(_env) + 1);
+	int descriptor= 0;
 
 	if (argc == 2)
 	{
@@ -33,7 +35,7 @@ int main(int argc, char **argv)
 			user_cmds = tokenizer(buffer);
 			if (user_cmds == NULL)
 				break;
-			path_head = exe_finder();
+			path_head = exe_finder(buffercpy);
 			if (path_head == NULL)
 				break;
 			if ((_strcmp(user_cmds[0], "") == 0) || (_strcmp(user_cmds[0], " ") == 0))

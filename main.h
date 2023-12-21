@@ -42,7 +42,7 @@ void _env(void);
 char **tokenizer(char *buffer);
 void _free(char **user_cmds, struct path *path_head);
 char *prompt(void);
-struct path *exe_finder(void);
+struct path *exe_finder(char *env_cpy);
 int finder(struct path *path_head, char **user_cmds, char *first_arg);
 int file_finder(char **user_cmds, struct path *path_head);
 
