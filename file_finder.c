@@ -21,7 +21,7 @@ int file_finder(char **user_cmds, struct path *tmp)
 	{
 		while (tmp != NULL)
 		{
-			user_cmds[0] = realloc(user_cmds[0], _len(tmp->dir) + _len(first_arg) + 1);
+			user_cmds[0] = realloc(user_cmds[0], _len(tmp->dir) + _len(first_arg) + 2);
 			_strcpy(user_cmds[0], tmp->dir);
 			_strcat(user_cmds[0], dir_sym);
 			_strcat(user_cmds[0], first_arg);

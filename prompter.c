@@ -22,6 +22,9 @@ char *prompt(void)
 			break;
 	}
 	if (len == -1)
+	{
+		free(buffer);
 		return (NULL);
+	}
 	return (buffer);
 }
