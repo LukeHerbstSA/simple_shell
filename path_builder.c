@@ -33,6 +33,5 @@ struct path *exe_finder(void)
 		tmp->next = malloc(sizeof(struct path));
 		tmp = tmp->next;
 	}
-	free(buffercpy);
 	return (head);
 }

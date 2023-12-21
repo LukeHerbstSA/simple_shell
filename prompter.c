@@ -18,7 +18,7 @@ char *prompt(void)
 			break;
 		if (buffer[len - 1] == '\n')
 			buffer[len - 1] = '\0';
-		if (buffer[-1] != '\n')
+		if (buffer[len - 1] != '\n')
 			break;
 	}
 	if (len == -1)
