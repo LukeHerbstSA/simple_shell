@@ -1,26 +1,6 @@
 #include "main.h"
 
 /**
-	* _exitter - void func
-	* Description: exits shell with the passed code
-	* @status: number to be passed into exit
-	*/
-void _exitter(char *status)
-{
-	int exit_status;
-
-	if (status != NULL)
-		exit_status = _atoi(status);
-	else
-		exit(0);
-	if (exit_status == 0)
-		perror("No chars present in exit status\n");
-	if (exit_status == -1)
-		perror("exit status has invalid chars\n");
-	if (exit_status > 0)
-		exit(exit_status);
-}
-/**
 	* _env - int func
 	* Description: writes the environment to terminal
 	*/

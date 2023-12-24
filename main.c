@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 	char *_env = getenv("PATH");
 	char *buffercpy;
 	int descriptor = 0;
+	int exit_code = -1;
 
 	if (argc == 2)
 	{
@@ -45,12 +46,13 @@ int main(int argc, char **argv)
 				break;
 			if ((_strcmp(user_cmds[0], "") == 0) || (_strcmp(user_cmds[0], " ") == 0))
 				break;
-			if (_interpreter(user_cmds) <= 0)
+			exit_code = _interpreter(user_cmds);
+			if (exit_code == -2 || exit_code >= 0)
 				break;
 			finder(path_head, user_cmds, user_cmds[0]);
 			break;
 		}
-		_free(user_cmds, path_head, buffercpy);
+		_free(user_cmds, path_head, buffercpy, exit_code);
 	}
 	return (0);
 }

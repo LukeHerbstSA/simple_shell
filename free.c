@@ -6,8 +6,9 @@
 	* @user_cmds: array of user args
 	* @path_head: struct
 	* @buffercpy: copy of PATH env variable
+	* @stat: exit status if applicable
 	*/
-void _free(char **user_cmds, struct path *path_head, char *buffercpy)
+void _free(char **user_cmds, struct path *path_head, char *buffercpy, int stat)
 {
 	int i = 0;
 	struct path *prev;
@@ -34,4 +35,6 @@ void _free(char **user_cmds, struct path *path_head, char *buffercpy)
 	if (path_head != NULL)
 		free(path_head);
 	free(buffercpy);
+	if (stat >= 0)
+		exit(stat);
 }
