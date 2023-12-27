@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 			exit_code = _interpreter(user_cmds);
 			if (exit_code == -2 || exit_code >= 0)
 				break;
-			if (finder(path_head, user_cmds, user_cmds[0] == -1))
+			if (finder(path_head, user_cmds, user_cmds[0]) == -1)
 				exit_code = 2;
 			break;
 		}
