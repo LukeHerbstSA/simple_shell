@@ -36,5 +36,8 @@ void _free(char **user_cmds, struct path *path_head, char *buffercpy, int stat)
 		free(path_head);
 	free(buffercpy);
 	if (stat >= 0)
-		exit(stat);
+	{
+		if (stat == 0)
+			exit(stat + 2);
+	}
 }
