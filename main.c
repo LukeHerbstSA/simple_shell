@@ -49,7 +49,8 @@ int main(int argc, char **argv)
 			exit_code = _interpreter(user_cmds);
 			if (exit_code == -2 || exit_code >= 0)
 				break;
-			finder(path_head, user_cmds, user_cmds[0]);
+			if (finder(path_head, user_cmds, user_cmds[0] == -1))
+				exit_code = 2;
 			break;
 		}
 		_free(user_cmds, path_head, buffercpy, exit_code);
