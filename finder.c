@@ -14,6 +14,7 @@ int finder(struct path *path_head, char **user_cmds, char *first_arg)
 	int i;
 	size_t pid;
 	struct stat buffer;
+	int error = 0;
 
 	if (path_head == NULL || user_cmds == NULL || first_arg == NULL)
 		return (-1);
@@ -33,6 +34,7 @@ int finder(struct path *path_head, char **user_cmds, char *first_arg)
 			execve(first_arg, user_cmds, environ);
 			_putchar_string(first_arg);
 			_putchar_string(": not found\n");
+			error = -1;
 		}
 		wait(NULL);
 	}
@@ -41,5 +43,5 @@ int finder(struct path *path_head, char **user_cmds, char *first_arg)
 		if (file_finder(user_cmds, tmp) == -1)
 			return (-1);
 	}
-	return (0);
+	return (error);
 }
