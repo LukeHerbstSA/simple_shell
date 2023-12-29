@@ -16,7 +16,7 @@ int finder(struct path *path_head, char **user_cmds, char *first_arg)
 	struct stat buffer;
 	int error = 0;
 
-	if (path_head == NULL || user_cmds == NULL || first_arg == NULL)
+	if (user_cmds == NULL || first_arg == NULL)
 		return (-1);
 	tmp = path_head;
 	for (i = 0; first_arg[i] != '\0'; i++)

@@ -14,6 +14,8 @@ int file_finder(char **user_cmds, struct path *tmp)
 	char dir_sym[2] = "/";
 	struct stat buffer;
 
+	if (tmp == NULL)
+		return (127);
 	first_arg = malloc(_len(user_cmds[0]) + 1);
 	_strcpy(first_arg, user_cmds[0]);
 	pid = fork();
