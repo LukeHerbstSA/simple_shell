@@ -15,6 +15,8 @@ struct path *exe_finder(char *buffercpy)
 	tmp = malloc(sizeof(struct path));
 	head = tmp;
 	dir = strtok(buffercpy, ":");
+	if (dir == NULL)
+		return (NULL);
 	if (buffercpy == NULL)
 		return (NULL);
 	while (dir != NULL)
