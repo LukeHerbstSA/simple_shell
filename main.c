@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	int descriptor = 0;
 	int exit_code = -1;
 
-	if (_env == NULL || env == "")
+	if (_env == NULL || _env == "")
 		exit(127);
 	if (argc == 2)
 	{
