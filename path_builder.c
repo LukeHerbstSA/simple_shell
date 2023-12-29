@@ -17,8 +17,6 @@ struct path *exe_finder(char *buffercpy)
 	dir = strtok(buffercpy, ":");
 	if (dir == NULL)
 		return (NULL);
-	if (buffercpy == NULL)
-		return (NULL);
 	while (dir != NULL)
 	{
 		tmp->dir = dir;

@@ -18,6 +18,8 @@ int main(int argc, char **argv)
 	int descriptor = 0;
 	int exit_code = -1;
 
+	if (_env == NULL)
+		exit(-1);
 	if (argc == 2)
 	{
 		descriptor = open(argv[1], O_RDONLY, "r");
