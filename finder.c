@@ -43,5 +43,7 @@ int finder(struct path *path_head, char **user_cmds, char *first_arg)
 		if (file_finder(user_cmds, tmp) == -1)
 			return (-1);
 	}
+	if (path_head == NULL)
+		error = 127;
 	return (error);
 }

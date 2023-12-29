@@ -18,8 +18,6 @@ int main(int argc, char **argv)
 	int descriptor = 0;
 	int exit_code = -1;
 
-	if (_env == NULL || (strcmp(_env, "") == 0))
-		exit(127);
 	if (argc == 2)
 	{
 		descriptor = open(argv[1], O_RDONLY, "r");
@@ -45,7 +43,7 @@ int main(int argc, char **argv)
 				break;
 			path_head = exe_finder(buffercpy);
 			if (path_head == NULL)
-				break;
+				exit_code = 127;
 			if ((_strcmp(user_cmds[0], "") == 0) || (_strcmp(user_cmds[0], " ") == 0))
 				break;
 			exit_code = _interpreter(user_cmds);
