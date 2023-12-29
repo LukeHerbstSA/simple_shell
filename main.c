@@ -29,7 +29,10 @@ int main(int argc, char **argv)
 		while (1) /* Error codes may need a specific way to deal with them */
 		{
 			buffercpy = malloc(_len(_env) + 1);
-			_strcpy(buffercpy, _env);
+			if (_env != NULL)
+				_strcpy(buffercpy, _env);
+			else
+				buffercpy = NULL;
 			if (descriptor <= 2 && isatty(STDIN_FILENO))
 				_putchar_string("$ ");
 			buffer = prompt();
