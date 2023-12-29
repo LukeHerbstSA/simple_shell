@@ -13,7 +13,6 @@ int file_finder(char **user_cmds, struct path *tmp)
 	char *first_arg = NULL;
 	char dir_sym[2] = "/";
 	struct stat buffer;
-	int buffcheck = stat(user_cmds[0], &buffer);
 
 	first_arg = malloc(_len(user_cmds[0]) + 1);
 	_strcpy(first_arg, user_cmds[0]);

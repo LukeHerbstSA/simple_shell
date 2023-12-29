@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	int descriptor = 0;
 	int exit_code = -1;
 
-	if (_env == NULL || (strcmp(_env, "") = 0))
+	if (_env == NULL || (strcmp(_env, "") == 0))
 		exit(127);
 	if (argc == 2)
 	{
